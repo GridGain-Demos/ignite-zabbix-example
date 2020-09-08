@@ -1,0 +1,19 @@
+version: '3'
+services:
+  zabbix:
+    container_name: ign_zabbix
+    image: zabbix/zabbix-appliance:ubuntu-trunk
+    ports:
+      - "80:80"
+  ignite1:
+    container_name: ign_node1
+    build: ./ignite
+    environment:
+      - IGNITE_JMX_PORT=49112
+      - JVM_OPTS=-DIGNITE_MBEAN_APPEND_CLASS_LOADER_ID=false
+  ignite2:
+    container_name: ign_node2
+    build: ./ignite
+    environment:
+      - IGNITE_JMX_PORT=49112
+      - JVM_OPTS=-DIGNITE_MBEAN_APPEND_CLASS_LOADER_ID=false
