@@ -2,7 +2,8 @@ version: '3'
 services:
   zabbix:
     container_name: ign_zabbix
-    image: zabbix/zabbix-appliance:ubuntu-trunk
+    build: ./zabbix
+    #image: zabbix/zabbix-appliance:ubuntu-trunk
     ports:
       - "80:80"
   ignite1:
